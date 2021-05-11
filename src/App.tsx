@@ -1,12 +1,10 @@
-import React from 'react';
-import './App.css';
-
-function App() {
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRouter from './routers/AppRouter';
+const App = () => {
   return (
-    <div className="App text-center mt-5">
-      <h2>Jeff & Meru's Drinks!</h2>
-    </div>
+    <Router>
+        <AppRouter />
+    </Router>
   );
-}
-
+};
 export default App;
