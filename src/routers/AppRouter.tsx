@@ -1,12 +1,11 @@
 import { Switch, Route } from 'react-router-dom';
-import HomePage from '../pages/HomePage';
+import Homepage from '../pages/Homepage';
 
 const AppRouter = () => {
     return (
         <div className='container'>
           <Switch>
-            <Route path='/' exact component={HomePage} />
-            <Route path='/cocktails/:cocktailId'/>
+            <Route path='/' exact component={Homepage} />
             <Route/>
           </Switch>
         </div>
