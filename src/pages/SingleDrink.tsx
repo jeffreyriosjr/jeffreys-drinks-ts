@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalContext';
-import  SingleDrinkComponent  from '../components/SingleDrinkComponent';
+import   SingleDrinkComponent   from '../components/SingleDrinkComponent';
 
 
 const SingleDrink = () => {
@@ -16,9 +16,9 @@ const SingleDrink = () => {
   
 
   return (
-    <div id='card'>
-        <SingleDrinkComponent />
-                  </div>
+    <div>
+        <SingleDrinkComponent drink={drink}/>
+    </div>
 
           
   );
