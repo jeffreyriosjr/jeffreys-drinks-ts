@@ -1,5 +1,5 @@
 import { Switch, Route } from 'react-router-dom';
-import HomePage from '../pages/Homepage';
+import Homepage from '../pages/Homepage';
 import  Navbar  from '../components/Navbar';
 import SingleDrink from '../pages/SingleDrink';
 
@@ -10,9 +10,10 @@ const AppRouter = () => {
           <div>
           <Navbar/>
           <Switch>
-            <Route path='/' exact component={HomePage} />
-            <Route path='/cocktails/:coctailsId' component={SingleDrink}/>
-          </Switch>
+
+            <Route path='/' exact component={Homepage} />
+            <Route path='/cocktails/:cocktailId' component={SingleDrink}/>
+           </Switch>
         </div>
         </div>
      
