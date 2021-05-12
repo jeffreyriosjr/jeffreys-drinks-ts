@@ -4,7 +4,7 @@ const HomePage = () => {
     const { getDrinks, drinks} = useContext(GlobalContext)
     useEffect(() => {
         getDrinks() ;
-        
+     
       },[])
     return (
         <div id='home'>
