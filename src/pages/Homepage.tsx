@@ -1,7 +1,7 @@
 import {useEffect, useContext} from 'react';
 import {GlobalContext} from '../context/GlobalContext';
-import DrinkCard from '../components/DrinksCard';
 import '../App.css';
+import DrinksCard from '../components/DrinksCard';
 const Homepage = () => {
     const { getDrinks, drinks} = useContext(GlobalContext)
     
@@ -23,8 +23,8 @@ const Homepage = () => {
                 return(
                     <div className= 'col-sm-12 col-md-3 mb-3' key={index}>
                         {/***drink card */}
-                        <DrinkCard drink={drink}/>
-                   </div>
+                        <DrinksCard drink={drink}/>
+                    </div>
                 )
             })}
             
