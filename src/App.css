@@ -1,1 +1,7 @@
-
+.dr-bg-img{
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 280px;
+    width: 100%;
+  }

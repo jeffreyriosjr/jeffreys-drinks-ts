@@ -15,6 +15,8 @@ type Drink = {
     strCategory: string;
     strInstructions: string;
     strDrinkThumb: string;
+    strAlcoholic: string,
+    strGlass: string,
     strIngredient1: string;
     strIngredient2: string | null;
     strIngredient3: string | null;
