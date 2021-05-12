@@ -43,10 +43,10 @@ type Drink = {
 
 type InitialStateType = {
     drinks: Drink[],
-    drink: Drink | undefined,
+    // drink: Drink | undefined,
     is_loading: boolean,
     getDrinks: () => void,
-    getSingleDrink: (drinkId: number) => void,
+    // getSingleDrink: (drinkId: number) => void,
 };
 
 //**** reference from shopsy ****/
