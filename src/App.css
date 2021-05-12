@@ -5,3 +5,9 @@
     height: 280px;
     width: 100%;
   }
+
+  .card{
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+  }
