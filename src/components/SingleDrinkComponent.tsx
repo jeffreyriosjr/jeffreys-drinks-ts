@@ -13,7 +13,7 @@ const SingleDrinkComponent: React.FC<SingleDrinkProps> = ({ drink }) => {
     console.log('singlecard',drink);
     return(
       
-              <div className="card col-sm-12 col-md-4 mt-5 text-center">
+              <div className="card1 col-sm-12 col-md-4 mt-5 text-center">
                   <div className="single-drink"style={{ backgroundImage: `url(${drink.strDrinkThumb})` }}>
                   </div>
                   <h2>{drink.strDrink}</h2>
