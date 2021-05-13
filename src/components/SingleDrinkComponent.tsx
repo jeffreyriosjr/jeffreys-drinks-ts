@@ -1,11 +1,18 @@
 
 import React from 'react';
 
+
 interface SingleDrinkProps {
     drink: Drink | undefined;
 }
 
 const SingleDrinkComponent: React.FC<SingleDrinkProps> = ({ drink }) => {
+    if (!drink) {
+        return <div>There is no product to show!</div>;
+      }
+      
+    console.log('singlecard',drink);
+    
 
 
     return(
@@ -20,10 +27,10 @@ const SingleDrinkComponent: React.FC<SingleDrinkProps> = ({ drink }) => {
 
                 <div className='sm-12 md-8'>
                     <div className='card-body'>
-                        <h3 className='card-title'>{drink?.strDrink}</h3>
+                        <h3 className='card-title'>{drink.strDrink}</h3>
                         <div className="card-details">
                             <h4>Category</h4>
-                            <p>{drink?.strCategory}</p>
+                            <p>{drink.strCategory}</p>
                         </div>
                     </div>
                 </div>
