@@ -46,8 +46,9 @@ export const GlobalProvider: React.FC = ({children}) => {
         try {
           let {data}= await instance.get(`/api/json/v1/1/lookup.php?i=${drinkId}`);
           let items = data.drinks;
-           console.log('single',items);
-          dispatch({ type: 'GET_SINGLE_DRINK', payload: items });
+           console.log('single',items[0]);
+           debugger
+          dispatch({ type: 'GET_SINGLE_DRINK', payload: items[0] });
         } catch (e) {
         //   console.log(e);
         }
