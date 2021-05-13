@@ -1,5 +1,5 @@
 import { Switch, Route } from 'react-router-dom';
-import Homepage from '../pages/homepage';
+import Homepage from '../pages/Homepage';
 import  Navbar  from '../components/Navbar';
 import SingleDrink from '../pages/SingleDrink';
 

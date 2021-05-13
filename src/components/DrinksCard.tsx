@@ -1,18 +1,14 @@
 import React from 'react';
 import {Link,useHistory} from 'react-router-dom';
-
-
 interface DrinksProps  {
    drink: Drink;
 }
 const DrinksCard:React.FC<DrinksProps > = ({drink}) => {
     const history = useHistory();
-
     return(
         <div className='card '>
             <span onClick={() => history.push(`/cocktails/${drink.idDrink}`)}>
                            {/* image top*/}
-      
                <div className='dr-bg-img' style = {{ backgroundImage: `url(${drink.strDrinkThumb})`}}></div>
                            {/* card body */}
                <div className='card-body'>
@@ -26,7 +22,6 @@ const DrinksCard:React.FC<DrinksProps > = ({drink}) => {
                </div>
            </span>
       </div>
-
     )
 }
 export default DrinksCard;
