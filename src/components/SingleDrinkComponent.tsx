@@ -1,14 +1,16 @@
 
-import React from 'react';
+import React, {useContext} from 'react';
+import{GlobalContext} from '../context/GlobalContext';
 
 
-interface SingleDrinkProps {
-    drink: Drink | undefined;
-}
+// interface SingleDrinkProps {
+//     drink: Drink | undefined;
+// }
 
-const SingleDrinkComponent: React.FC<SingleDrinkProps> = ({ drink }) => {
+const SingleDrinkComponent: React.FC= () => {
+    const { drink } = useContext(GlobalContext);
     if (!drink) {
-        return <div>There is no product to show!</div>;
+        return <div>There is no drink to show!</div>;
       }
       
     console.log('singlecard',drink);
@@ -18,9 +20,10 @@ const SingleDrinkComponent: React.FC<SingleDrinkProps> = ({ drink }) => {
     return(
         <div className='card'>
             <div className='row'>
+                <h3>{drink.strDrink}</h3>
                 <div className='col-sm-12 col-md-4'>
                     <div className='drink-img-container p-3'>
-                        <div className='drink-img' style={{ backgroundImage: `url(${drink?.strDrinkThumb})` }}>
+                        <div className='drink-img' style={{ backgroundImage: `url(${drink.strDrinkThumb})` }}>
                         </div>
                     </div>
                 </div>

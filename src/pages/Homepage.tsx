@@ -2,27 +2,50 @@ import {useEffect, useContext, useState, ChangeEvent} from 'react';
 import {GlobalContext} from '../context/GlobalContext';
 import '../App.css';
 import DrinksCard from '../components/DrinksCard';
+import instance from '../api/apiConfig';
 const Homepage = () => {
-    const { getDrinks, drinks} = useContext(GlobalContext)
-    const [cocktails, setCocktails] = useState<Drink[]>(drinks);
+    const { getDrinks, drinks} = useContext(GlobalContext);
+    const[showDrinks, setShowDrinks] =useState<Drink[]>(drinks);
+    // const [cocktails, setCocktails] = useState<Drink[]>(drinks);
     const [searchTerm, setSearchTerm] = useState<string>('');
+
+    const fetchDrinks = async () => {
+      try{
+         
+        let {data}= await instance.get('api/json/v1/1/search.php?s=');
+        let items = data.drinks;
+          // console.log('books', data);
+          //  setShowDrinks(items);
+            // getDrinks()
+          
+
+      }
+      catch (e){
+          console.log(e)
+      }
+  }
 
  
     
     useEffect(() => {
-        getDrinks() ;
+        getDrinks()
+      //  setCocktails(drinks)
+      //  fetchDrinks()
         console.log('drinks-->',drinks)
+        //  console.log('showDrinks', cocktails)
         // getSearchedDrink();
-        const foundDrink = drinks.filter(dr => {
+        const foundDrink = showDrinks.filter(dr => {
+          // getDrinks()
             return dr.strDrink.toLowerCase().includes(searchTerm.toLowerCase());
+            
           });
-          searchTerm === '' ? setCocktails(drinks) : setCocktails(foundDrink);
-          console.log('cocktails--->', cocktails)
+          searchTerm === ''? setShowDrinks(drinks) : setShowDrinks(foundDrink);
+          // console.log('cocktails--->', cocktails)
      
       },[searchTerm])
 
       const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-        
+        debugger;
         setSearchTerm(event.target.value);
    }
     return (
@@ -51,7 +74,7 @@ const Homepage = () => {
       </div>
         {/*** Drink map */}
         <div className= 'row mt-3'>
-        {cocktails.map((drink,index)=>{
+        {showDrinks.map((drink,index)=>{
                 return(
                     <div className= 'col-sm-12 col-md-3 mb-3' key={index}>
                         {/***drink card */}

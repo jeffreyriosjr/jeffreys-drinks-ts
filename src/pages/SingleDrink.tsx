@@ -1,26 +1,21 @@
 import React, { useContext, useEffect,useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalContext';
 import   SingleDrinkComponent   from '../components/SingleDrinkComponent';
 
 
 const SingleDrink = () => {
-    const { drinks, drink,getSingleDrink } = useContext(GlobalContext);
-    // const [singledrink, setSingleDrink] = useState<Drink>();
+    const { drink,getSingleDrink } = useContext(GlobalContext);
+   
     const { cocktailId } = useParams< {cocktailId: string}>();
 
 
   useEffect(() => {
     getSingleDrink(+cocktailId)
    
-      // let foundDrink = drinks.find(
-      //   pd => pd.idDrink === +cocktailId 
-      // );
       
-      // setSingleDrink(foundDrink );
     }, [cocktailId]);
-  //   getSingleDrink(+cocktailId );
-  // }, [cocktailId]);
+  
 
   
 
@@ -29,11 +24,11 @@ const SingleDrink = () => {
       {drink ? (
         <div className='row mt-3'>
           <div className='col'>
-           <SingleDrinkComponent drink={drink}/>
+           <SingleDrinkComponent />
           </div>
         </div>
       ) : (
-        <h2 className='text-center'>No Pokemon by that name was found!</h2>
+        <h2 className='text-center'>No drink by that id was found!</h2>
       )}
     </div>
   );
