@@ -10,10 +10,10 @@ const AppRouter = () => {
           <div>
           <Navbar/>
           <Switch>
-
             <Route path='/' exact component={Homepage} />
             <Route path='/cocktails/:cocktailId' component={SingleDrink}/>
-           </Switch>
+            
+          </Switch>
         </div>
         </div>
      
