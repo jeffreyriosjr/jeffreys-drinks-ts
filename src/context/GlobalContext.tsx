@@ -33,7 +33,7 @@ export const GlobalProvider: React.FC = ({children}) => {
             let {data}= await instance.get('api/json/v1/1/search.php?s=');
             let items = data.drinks;
             
-             console.log('all the drinks',data)
+             console.log('all the drinks',items)
             dispatch({type:'GET_DRINKS', payload:items})
           
         }
