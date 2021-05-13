@@ -14,7 +14,7 @@ const appReducer = (state: any ,action: any) => {
         case 'GET_DRINKS':
             return {...state, drinks: action.payload, is_loading: false };
         case 'GET_SINGLE_DRINK':
-            return {...state, drinks: action.payload, is_loading: false };
+            return {...state, drink: action.payload, is_loading: false };
         case 'SET_LOADING':
                 return { ...state, is_loading: action.payload };        
         default:
@@ -30,10 +30,10 @@ export const GlobalProvider: React.FC = ({children}) => {
         dispatch({ type: 'SET_LOADING', payload: true });
         try{
            
-            let {data}= await instance.get('/api/json/v1/1/search.php?s=');
+            let {data}= await instance.get('api/json/v1/1/search.php?s=');
             let items = data.drinks;
             
-            // console.log('data',items)
+             console.log('all the drinks',data)
             dispatch({type:'GET_DRINKS', payload:items})
           
         }
@@ -41,12 +41,13 @@ export const GlobalProvider: React.FC = ({children}) => {
             // console.log(e);
         }
     };
-    const getSingleDrink = async () => {
+    const getSingleDrink = async (drinkId : number) => {
         dispatch({ type: 'SET_LOADING', payload: true });
         try {
-          let { data } = await instance.get('/api/json/v1/1/search.php?s=');
-        //   console.log(data);
-          dispatch({ type: 'GET_SINGLE_DRINK', payload: data });
+          let {data}= await instance.get(`/api/json/v1/1/lookup.php?i=${drinkId}`);
+          let items = data.drinks;
+           console.log('single',items);
+          dispatch({ type: 'GET_SINGLE_DRINK', payload: items });
         } catch (e) {
         //   console.log(e);
         }
