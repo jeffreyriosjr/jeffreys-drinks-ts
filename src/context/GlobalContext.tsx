@@ -30,10 +30,10 @@ export const GlobalProvider: React.FC = ({children}) => {
         dispatch({ type: 'SET_LOADING', payload: true });
         try{
            
-            let {data}= await instance.get('api/json/v1/1/search.php?s=');
+            let {data}= await instance.get('/api/json/v1/1/search.php?s=');
             let items = data.drinks;
             
-             console.log('all the drinks',data)
+             
             dispatch({type:'GET_DRINKS', payload:items})
           
         }
@@ -47,7 +47,7 @@ export const GlobalProvider: React.FC = ({children}) => {
           let {data}= await instance.get(`/api/json/v1/1/lookup.php?i=${drinkId}`);
           let items = data.drinks;
            console.log('single',items[0]);
-           debugger
+        //    debugger
           dispatch({ type: 'GET_SINGLE_DRINK', payload: items[0] });
         } catch (e) {
         //   console.log(e);

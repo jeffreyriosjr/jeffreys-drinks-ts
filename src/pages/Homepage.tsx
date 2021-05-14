@@ -1,30 +1,33 @@
-import {useEffect, useContext, useState, ChangeEvent} from 'react';
+import {useEffect, useContext, useState, ChangeEvent, useCallback, useRef} from 'react';
 import {GlobalContext} from '../context/GlobalContext';
 import '../App.css';
 import DrinksCard from '../components/DrinksCard';
+import Loader from '../components/Loader';
+import instance from '../api/apiConfig';
+
 const Homepage = () => {
-    const { getDrinks, drinks} = useContext(GlobalContext)
-    const [cocktails, setCocktails] = useState<Drink[]>(drinks);
+    const { getDrinks, drinks} = useContext(GlobalContext);
+    const[showDrinks, setShowDrinks] =useState<Drink[]>([]);
     const [searchTerm, setSearchTerm] = useState<string>('');
 
- 
-    
-    useEffect(() => {
-        getDrinks() ;
-        console.log('drinks-->',drinks)
-        // getSearchedDrink();
-        const foundDrink = drinks.filter(dr => {
-            return dr.strDrink.toLowerCase().includes(searchTerm.toLowerCase());
-          });
-          searchTerm === '' ? setCocktails(drinks) : setCocktails(foundDrink);
-          console.log('cocktails--->', cocktails)
-     
-      },[searchTerm])
+  
+
+  
+   useEffect(() => {
+         getDrinks()
+        },[searchTerm])
+
+      const foundDrink = drinks.filter(dr => {
+         
+        return dr.strDrink.toLowerCase().includes(searchTerm.toLowerCase())
+        
+      });
 
       const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         
         setSearchTerm(event.target.value);
    }
+  
     return (
     <div id='home'>
         <div className='row text-center'>
@@ -50,7 +53,7 @@ const Homepage = () => {
       </div>
         {/*** Drink map */}
         <div className= 'row mt-3'>
-        {cocktails.map((drink,index)=>{
+        {foundDrink.map((drink,index)=>{
                 return(
                     <div className= 'col-sm-12 col-md-3 mb-3' key={index}>
                         {/***drink card */}
