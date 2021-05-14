@@ -9,7 +9,6 @@ const DrinksCard:React.FC<DrinksProps > = ({drink}) => {
         <div className="body">
         <div className='container'>
             <div className="card">
-            <div className="card-header">
             <div className='card-img text-center' style = {{ backgroundImage: `url(${drink.strDrinkThumb})`}}>
                    <h4 className='card-title text-center'>
                       <Link to={`/cocktails/${drink.idDrink}`}>The: {drink.strDrink}</Link>
@@ -18,7 +17,6 @@ const DrinksCard:React.FC<DrinksProps > = ({drink}) => {
            </div>
            </div>
            </div>
-      </div>
     )
 }
 export default DrinksCard;

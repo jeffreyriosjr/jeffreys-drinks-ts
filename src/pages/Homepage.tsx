@@ -29,7 +29,7 @@ const Homepage = () => {
    }
   
     return (
-    <div id='home'>
+    <div className='home'>
         <div className='row text-center'>
             <div className='col-sm-12 mt-5'>
                 <h3>Jeffrey's Drinks</h3>

@@ -13,20 +13,22 @@ const SingleDrinkComponent: React.FC<SingleDrinkProps> = ({ drink }) => {
     console.log('singlecard',drink);
     return(
             <div className="container">
-            <div className="row align-items-center no-gutters">
-              <div className="card-2 mt-5"style={{ backgroundImage: `url(${drink.strDrinkThumb})` }}>
+            <div className="row align-items-center no-gutters d-flex">
+              <div className="card-2 mt-1"style={{ backgroundImage: `url(${drink.strDrinkThumb})` }}>
                   <div className='card-title-2'>
                       
                         <h5 className='text-info'>
-                        <p>
-                        The Recipe:
+                        <p className='text-warning'>
+                        The Recipe :
                         </p>
-                        {drink.strIngredient2}
-                        {drink.strIngredient1}
-                        {drink.strIngredient3}
+                       <p>  {drink.strIngredient2}</p>
+                        <p> {drink.strIngredient1}</p>
+                        <p> {drink.strIngredient3}</p>
                         </h5>
                         <h3>
-                        <p className="card-text">{drink.strInstructions}</p>
+                        <h3 className="card-text text-right">
+                            <p>The Build : </p>
+                            {drink.strInstructions}</h3>
                         </h3>
                         <h3>Glass Type: {drink.strGlass}</h3>
                    </div>
