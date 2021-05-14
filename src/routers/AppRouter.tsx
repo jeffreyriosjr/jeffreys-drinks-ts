@@ -6,8 +6,8 @@ import SingleDrink from '../pages/SingleDrink';
 const AppRouter = () => {
     return (
 
-        <div className='container'>
-          <div>
+        <div className='container mt-3'>
+          <div className='align-items-center'>
           <Navbar/>
           <Switch>
             <Route path='/' exact component={Homepage} />
