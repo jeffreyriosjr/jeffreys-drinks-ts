@@ -31,9 +31,8 @@ const Homepage = () => {
     return (
     <div id='home'>
         <div className='row text-center'>
-            <div className='col'>
-                <h2>Home page</h2>
-                <h3>You have {drinks.length} items to sell</h3>
+            <div className='col-sm-12 mt-5'>
+                <h3>Jeffrey's Drinks</h3>
             </div>
         </div>
           {/**Search filter */}
