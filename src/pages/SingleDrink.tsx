@@ -1,4 +1,4 @@
-import React, { useContext, useEffect} from 'react';
+import { useContext, useEffect} from 'react';
 import { useParams} from 'react-router-dom';
 import { GlobalContext } from '../context/GlobalContext';
 import   SingleDrinkComponent   from '../components/SingleDrinkComponent';

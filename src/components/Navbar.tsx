@@ -6,7 +6,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg navbar-dark  mt-5">
 
             {/*logo*/}
-            <Link to='/' className='navbar-brand'>Drinks</Link>
+            <Link to='/' className='navbar-brand mx-3 text-white'>Jeffrey's Drinks</Link>
             {/*menu*/}
             <div className='collapse navbar-collapse'>
             <div className='navbar-nav ml-auto'>
