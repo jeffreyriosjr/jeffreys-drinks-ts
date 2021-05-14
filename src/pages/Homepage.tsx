@@ -6,48 +6,22 @@ import instance from '../api/apiConfig';
 const Homepage = () => {
     const { getDrinks, drinks} = useContext(GlobalContext);
     const[showDrinks, setShowDrinks] =useState<Drink[]>([]);
-    // const [cocktails, setCocktails] = useState<Drink[]>(drinks);
+   
     const [searchTerm, setSearchTerm] = useState<string>('');
 
-    const fetchDrinks = async () => {
-      try{
+   useEffect(() => {
+         getDrinks()
+        const foundDrink = drinks.filter(dr => {
          
-        let {data}= await instance.get('api/json/v1/1/search.php?s=');
-        let items = data.drinks;
-          
-             setShowDrinks(items);
-            console.log('showdrinks-->',showDrinks)
-           getDrinks()
-           console.log('drinks-->',drinks)
-          
-
-      }
-      catch (e){
-          console.log(e)
-      }
-  }
-
- 
-    
-    useEffect(() => {
-        // getDrinks()
-        //setShowDrinks(drinks)
-      //  setCocktails(drinks)
-        fetchDrinks()
-        console.log('useeffectdrinks-->',drinks)
-        //  console.log('showDrinks', cocktails)
-      
-        const foundDrink = showDrinks.filter(dr => {
-         
-            return dr.strDrink.toLowerCase().includes(searchTerm.toLowerCase());
-            
-            
+            return (
+              dr.strDrink.toLowerCase().includes(searchTerm.toLowerCase())
+            )
           });
-          console.log('searchdrinks-->',drinks)
-          searchTerm === ''? setShowDrinks(showDrinks) : setShowDrinks(foundDrink);
+       
+          searchTerm === ''? setShowDrinks(drinks) : setShowDrinks(foundDrink);
          
      
-      },[searchTerm])
+      },[searchTerm, drinks])
 
       const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
        
