@@ -30,7 +30,7 @@ export const GlobalProvider: React.FC = ({children}) => {
         dispatch({ type: 'SET_LOADING', payload: true });
         try{
            
-            let {data}= await instance.get('api/json/v1/1/search.php?s=');
+            let {data}= await instance.get('/api/json/v1/1/search.php?s=');
             let items = data.drinks;
             
              
